@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16F73" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="MOWeatherCity" representedClassName="MOWeatherCity" syncable="YES">
+        <attribute name="cityName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="weatherID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="list" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="MOWeatherDescriptionDay" inverseName="weatherCity" inverseEntity="MOWeatherDescriptionDay" syncable="YES"/>
+    </entity>
+    <entity name="MOWeatherDescriptionDay" representedClassName="MOWeatherDescriptionDay" syncable="YES">
+        <attribute name="clouds" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="weatherDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="main" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="MOWeatherMain" inverseName="weatherDescriptionDay" inverseEntity="MOWeatherMain" syncable="YES"/>
+        <relationship name="weatherCity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MOWeatherCity" inverseName="list" inverseEntity="MOWeatherCity" syncable="YES"/>
+        <relationship name="wind" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="MOWind" inverseName="weatherDescriptionDay" inverseEntity="MOWind" syncable="YES"/>
+    </entity>
+    <entity name="MOWeatherMain" representedClassName="MOWeatherMain" syncable="YES">
+        <attribute name="humidity" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="pressure" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="temp" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="weatherDescriptionDay" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MOWeatherDescriptionDay" inverseName="main" inverseEntity="MOWeatherDescriptionDay" syncable="YES"/>
+    </entity>
+    <entity name="MOWind" representedClassName="MOWind" syncable="YES">
+        <attribute name="deg" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="speed" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="weatherDescriptionDay" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MOWeatherDescriptionDay" inverseName="wind" inverseEntity="MOWeatherDescriptionDay" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="MOWeatherCity" positionX="97" positionY="-99" width="128" height="88"/>
+        <element name="MOWeatherDescriptionDay" positionX="-144" positionY="27" width="128" height="133"/>
+        <element name="MOWeatherMain" positionX="97" positionY="23" width="128" height="103"/>
+        <element name="MOWind" positionX="70" positionY="150" width="128" height="88"/>
+    </elements>
+</model>

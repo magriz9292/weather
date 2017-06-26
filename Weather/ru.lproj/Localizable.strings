@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  Weather
+
+  Created by Михаил Гарбуз on 26.06.17.
+  Copyright © 2017 Михаил Гарбуз. All rights reserved.
+*/
+
+"Details" = "Подробности";
+"Other Days" = "Другие дни";
+"Humidity" = "Влажность";
+"Pressure" = "Давление";
+"Speed wind"= "Скорость ветра";
+"Temp" = "Температура";
+
+"Remove" = "Удалить";
+"Error" = "Ошибка";
+"Ok" = "Ок";
+"Weather" = "Погода";
